@@ -6,7 +6,7 @@
 <body>
 
     <h2>Register as Buyer</h2>
-    <form action="register_buyer.php" method="get">
+    <form action="home.php" method="get" target="_blank">
         <table>
             <tr>
                 <td><label for="buyer_name">Full Name:</label></td>

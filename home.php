@@ -6,29 +6,39 @@
 <body>
     <h1 align="center">Seller Registration</h1>
     <form action="seller.php" method="post">
-        <table align="center" cellpadding="10" cellspacing="0">
+        <table align="center" border="0" cellpadding="10" cellspacing="0">
             <tr>
-                <td><strong>Full Name:</strong></td>
+                <td>Full Name:</td>
                 <td><input type="text" name="fname" required></td>
             </tr>
             <tr>
-                <td><strong>Email:</strong></td>
+                <td>Email:</td>
                 <td><input type="email" name="email" required></td>
             </tr>
             <tr>
-                <td><strong>Phone:</strong></td>
+                <td>Phone:</td>
                 <td><input type="text" name="phone" required></td>
             </tr>
             <tr>
-                <td><strong>Address:</strong></td>
+                <td>National ID (NID):</td>
+                <td><input type="text" name="nid" required></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
                 <td><input type="text" name="address" required></td>
             </tr>
             <tr>
-                <td><strong>City:</strong></td>
-                <td><input type="text" name="city" required></td>
+                <td>Type of Seller:</td>
+                <td>
+                    <select name="seller_type" required>
+                        <option value="Farmer">Farmer</option>
+                        <option value="Home-based Producer">Home-based Producer</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </td>
             </tr>
             <tr>
-                <td><strong>Country:</strong></td>
+                <td>Country:</td>
                 <td><input type="text" name="country" required></td>
             </tr>
             <tr>
