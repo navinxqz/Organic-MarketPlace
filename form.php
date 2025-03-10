@@ -6,7 +6,7 @@
 <body>
 
     <h2>Register as Buyer</h2>
-    <form action="register_buyer.php" method="get">
+    <form action="submit.php" method="get" target="_blank">
         <table>
             <tr>
                 <td><label for="buyer_name">Full Name:</label></td>
@@ -38,11 +38,11 @@
                     </select>
                 </td>
             </tr>
+            
             <tr>
-            <tr>
-                <td><label for="buyer_offers"></label></td>
-                <input type="checkbox" id="buyer_offers" name="buyer_offers" value="Subscribe to Offers">
-                
+                <td>
+                <input type="checkbox" id="buyer_offers" name="buyer_offers"> Subscribe to Offers
+</td>
             </tr>
             
             <tr>
