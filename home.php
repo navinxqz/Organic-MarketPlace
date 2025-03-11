@@ -6,7 +6,7 @@
 <body>
     <h1 align="center">Seller Registration</h1>
     <form action="seller.php" method="post">
-        <table align="center" border="0" cellpadding="10" cellspacing="0">
+        <table align="center" border="1" cellpadding="10" cellspacing="0">
             <tr>
                 <td>Full Name:</td>
                 <td><input type="text" name="fname" required></td>
@@ -38,9 +38,27 @@
                 </td>
             </tr>
             <tr>
-                <td>Country:</td>
-                <td><input type="text" name="country" required></td>
-            </tr>
+<td><label for="seller_category">Business Category:</label></td>
+<td>
+<select id="seller_category" name="seller_category" required>
+<option value="grocery">Grocery</option>
+<option value="organic">Organic Products</option>
+<option value="wholesale">Wholesale</option>
+</select>
+</td>
+</tr>
+<tr>
+<td><label for="seller_area">Business Area:</label></td>
+<td>
+<select id="location" name="seller_area" required>
+<option value="Dhaka">Dhaka</option>
+<option value="Sylhet">Sylhet</option>
+<option value="Barisal">Barisal</option>
+<option value="Chittagong">Chittagong</option>
+<option value="Khulna">Khulna</option>
+</select>
+</td>
+</tr>
             <tr>
                 <td><strong>Username:</strong></td>
                 <td><input type="text" name="username" required></td>
