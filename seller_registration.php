@@ -4,8 +4,11 @@
 </head>
 
 <body>
-    <h1 align="center">Seller Registration</h1>
-    <form action="seller.php" method="post">
+    <h1 align="center">Welcome to the Registration Form</h1>
+    <!-- <div align="center"> -->
+    <form action="form.php" method="post">
+    <fieldset>
+    <legend>Seller Information</legend>
         <table align="center" border="0" cellpadding="10" cellspacing="0">
             <tr>
                 <td>Full Name:</td>
@@ -38,8 +41,27 @@
                 </td>
             </tr>
             <tr>
-                <td>Country:</td>
-                <td><input type="text" name="country" required></td>
+                <td><label for="seller_category">Business Category:</label></td>
+                <td>
+                    <input type="radio" id="grocery" name="seller_category" value="grocery" required>
+                    <label for="grocery">Grocery</label><br>
+                    <input type="radio" id="organic" name="seller_category" value="organic" required>
+                    <label for="organic">Organic Products</label><br>
+                    <input type="radio" id="wholesale" name="seller_category" value="wholesale" required>
+                    <label for="wholesale">Wholesale</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="seller_area">Business Area:</label></td>
+                <td>
+                    <select id="location" name="seller_area" required>
+                        <option value="Dhaka">Dhaka</option>
+                        <option value="Sylhet">Sylhet</option>
+                        <option value="Barisal">Barisal</option>
+                        <option value="Chittagong">Chittagong</option>
+                        <option value="Khulna">Khulna</option>
+                    </select>
+                </td>
             </tr>
             <tr>
                 <td><strong>Username:</strong></td>
@@ -49,12 +71,16 @@
                 <td><strong>Password:</strong></td>
                 <td><input type="password" name="password" required></td>
             </tr>
-            <tr>
-                <!-- <td><input type="submit" value="Register"></td> -->
+            </table>
+        </fieldset>
+        <table><tr>
                  <td colspan="2" align="center">
                     <input type="submit" value="Register">
                     <input type="reset" value="Reset">
                 </td>
             </tr>
-        </table>
+            </table>
+    </form>
+<!-- </div> -->
+</body> 
 </html>

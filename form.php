@@ -26,12 +26,12 @@
             </tr>
             <tr>
                 <td><label for="buyer_age">Age:</label></td>
-                <td><input type="date" id="buyer_age" name="buyer_age" required></td>
+                <td><input type="date" id="buyer_age" name="buyer_age" ></td>
             </tr>
             <tr>
                 <td><label for="buyer_gender">Gender:</label></td>
                 <td>
-                    <select id="buyer_gender" name="buyer_gender" required>
+                    <select id="buyer_gender" name="buyer_gender" >
                         <option value="male">Male</option>
                         <option value="female">Female</option>
                         <option value="other">Other</option>
