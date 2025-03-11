@@ -4,8 +4,11 @@
 </head>
 
 <body>
-    <h1 align="center">Seller Registration</h1>
-    <form action="seller.php" method="post">
+    <h1 align="center">Welcome to the Registration Form</h1>
+    <!-- <div align="center"> -->
+    <form action="form.php" method="post">
+    <fieldset>
+    <legend>Seller Information</legend>
         <table align="center" border="0" cellpadding="10" cellspacing="0">
             <tr>
                 <td>Full Name:</td>
@@ -68,12 +71,16 @@
                 <td><strong>Password:</strong></td>
                 <td><input type="password" name="password" required></td>
             </tr>
-            <tr>
-                <!-- <td><input type="submit" value="Register"></td> -->
+            </table>
+        </fieldset>
+        <table><tr>
                  <td colspan="2" align="center">
                     <input type="submit" value="Register">
                     <input type="reset" value="Reset">
                 </td>
             </tr>
-        </table>
+            </table>
+    </form>
+<!-- </div> -->
+</body> 
 </html>
