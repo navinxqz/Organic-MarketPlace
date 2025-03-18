@@ -5,6 +5,9 @@
     left: 0;
     width: 100%;
     height: 100%;
+    background-image: url('./assets/image.png'); /* Replace with your image path */
+    /* background-size: cover;
+    background-position: center; */
     z-index: -1; /* Send the background behind other content */
 }
 
@@ -35,7 +38,7 @@
     font-size: 14px;
     line-height: 1.5;
     max-height: calc(100% - 40px); /* Adjust height to fit inside the box */
-    overflow-y: auto; /* Ensure scrolling for the content */
+    /* overflow-y: auto; Ensure scrolling for the content */
 }
 
 /* Main Content Styling */
