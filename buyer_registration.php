@@ -5,31 +5,15 @@
     <link rel="stylesheet" type="text/css" href="./style/richi.css">
 </head>
 <body>
-    <!-- Background Image -->
-    <div id="background-image">
-        <img src="./assets/image.png" alt="Grocery Store">
+    <div class="navbar">
+        <h2>Organic Food Marketplace</h2>
+    </div>
+    <div id="banner">
+        <img src="./assets/abc.jpeg" alt="Organic Food Marketplace">
     </div>
 
-    <!-- Terms and Conditions Box -->
-    <div id="terms-box">
-        <h3>Terms and Conditions</h3>
-        <div class="terms-content">
-            <p>1. By using this website, you agree to our terms and conditions.</p>
-            <p>2. All personal information provided must be accurate and up-to-date.</p>
-            <p>3. The website reserves the right to modify or terminate services at any time.</p>
-            <p>4. Users must comply with all applicable laws and regulations.</p>
-            <p>5. Any misuse of the website may result in account suspension.</p>
-            <p>6. Refunds and returns are subject to our refund policy.</p>
-            <p>7. The website is not responsible for third-party content or links.</p>
-            <p>8. Users are responsible for maintaining the confidentiality of their accounts.</p>
-            <p>9. The website may collect and use data as outlined in our privacy policy.</p>
-            <p>10. Continued use of the website constitutes acceptance of these terms.</p>
-        </div>
-    </div>
-
-    <!-- Main Content -->
     <form id="buyer-form" action="submit.php" method="post">
-        <h2 class="heding">Register as Buyer</h2>
+        <h2 class="heading">Register as Buyer</h2>
         <fieldset>
             <legend>Personal Details</legend>
             <div class="form-group">
@@ -84,12 +68,31 @@
                 <input type="file" id="buyer_profile" name="buyer_profile">
             </div>
             <div class="form-group">
-                <label for="buyer_offers">Subscribe to Offers:</label>
                 <input type="checkbox" id="buyer_offers" name="buyer_offers" value="yes">
+                <label for="buyer_offers">I agree to the terms and condition</label>
             </div>
-            <button type="submit">Submit</button>
-            <button type="reset">Reset</button>
         </fieldset>
+
+        <!-- Terms and Conditions Box -->
+            <!-- <legend>Terms and Conditions</legend> -->
+            <div id="terms-box">
+                <div class="terms-content">
+                    <p>1. By using this website, you agree to our terms and conditions.</p>
+                    <p>2. All personal information provided must be accurate and up-to-date.</p>
+                    <p>3. The website reserves the right to modify or terminate services at any time.</p>
+                    <p>4. Users must comply with all applicable laws and regulations.</p>
+                    <p>5. Any misuse of the website may result in account suspension.</p>
+                    <p>6. Refunds and returns are subject to our refund policy.</p>
+                    <p>7. The website is not responsible for third-party content or links.</p>
+                    <p>8. Users are responsible for maintaining the confidentiality of their accounts.</p>
+                    <p>9. The website may collect and use data as outlined in our privacy policy.</p>
+                    <p>10. Continued use of the website constitutes acceptance of these terms.</p>
+                </div>
+            </div>
+
+        <!-- Submit and Reset Buttons -->
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
     </form>
 </body>
 </html>
