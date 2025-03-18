@@ -2,93 +2,94 @@
 <html>
 <head>
     <title>Grocery Website - Login & Registration</title>
-    <link ref="stylesheet" href="../css">
+    <link rel="stylesheet" type="text/css" href="./style/richi.css">
 </head>
 <body>
-   
-    <form action="submit.php" method="post">
-        
+    <!-- Background Image -->
+    <div id="background-image">
+        <img src="./assets/image.png" alt="Grocery Store">
+    </div>
 
-    
-    <h2>Register as Buyer</h2>
-    <form action="register_buyer.php" method="get">
+    <!-- Terms and Conditions Box -->
+    <div id="terms-box">
+        <h3>Terms and Conditions</h3>
+        <div class="terms-content">
+            <p>1. By using this website, you agree to our terms and conditions.</p>
+            <p>2. All personal information provided must be accurate and up-to-date.</p>
+            <p>3. The website reserves the right to modify or terminate services at any time.</p>
+            <p>4. Users must comply with all applicable laws and regulations.</p>
+            <p>5. Any misuse of the website may result in account suspension.</p>
+            <p>6. Refunds and returns are subject to our refund policy.</p>
+            <p>7. The website is not responsible for third-party content or links.</p>
+            <p>8. Users are responsible for maintaining the confidentiality of their accounts.</p>
+            <p>9. The website may collect and use data as outlined in our privacy policy.</p>
+            <p>10. Continued use of the website constitutes acceptance of these terms.</p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <form id="buyer-form" action="submit.php" method="post">
+        <h2 class="heding">Register as Buyer</h2>
         <fieldset>
             <legend>Personal Details</legend>
-            <table>
-                <tr>
-                    <td><label for="buyer_name">Full Name:</label></td>
-                    <td><input type="text" id="buyer_name" name="buyer_name" required></td>
-                </tr>
-                <tr>
-                    <td><label for="buyer_email">Email Address:</label></td>
-                    <td><input type="email" id="buyer_email" name="buyer_email" required></td>
-                </tr>
-                <tr>
-                    <td><label for="buyer_password">Password:</label></td>
-                    <td><input type="password" id="buyer_password" name="buyer_password" required></td>
-                </tr>
-                <tr>
-                    <td><label for="buyer_dob">Date of Birth:</label></td>
-                    <td><input type="date" id="buyer_dob" name="buyer_dob" required></td>
-                </tr>
-                <tr>
-                    <td><label>Gender:</label></td>
-                    <td>
-                        <input type="radio" name="buyer_gender" value="male" required> Male
-                        <input type="radio" name="buyer_gender" value="female" required> Female
-                        <input type="radio" name="buyer_gender" value="other" required> Other
-                    </td>
-                </tr>
-               
-            </table>
+            <div class="form-group">
+                <label for="buyer_name">Full Name:</label>
+                <input type="text" id="buyer_name" name="buyer_name" required>
+            </div>
+            <div class="form-group">
+                <label for="buyer_email">Email Address:</label>
+                <input type="email" id="buyer_email" name="buyer_email" required>
+            </div>
+            <div class="form-group">
+                <label for="buyer_password">Password:</label>
+                <input type="password" id="buyer_password" name="buyer_password" required>
+            </div>
+            <div class="form-group">
+                <label for="buyer_dob">Date of Birth:</label>
+                <input type="date" id="buyer_dob" name="buyer_dob" required>
+            </div>
+            <div class="form-group">
+                <label>Gender:</label>
+                <input type="radio" name="buyer_gender" value="male" required> Male
+                <input type="radio" name="buyer_gender" value="female" required> Female
+                <input type="radio" name="buyer_gender" value="other" required> Other
+            </div>
         </fieldset>
 
         <fieldset>
             <legend>Shopping Preferences</legend>
-            <table>
-                <tr>
-                    <td><label for="buyer_delivery">Preferred Delivery Date & Time:</label></td>
-                    <td><input type="datetime-local" id="buyer_delivery" name="buyer_delivery"></td>
-                </tr>
-                <tr>
-                    <td><label for="buyer_week">Preferred Shopping Week:</label></td>
-                    <td><input type="week" id="buyer_week" name="buyer_week"></td>
-                </tr>
-                <tr>
-                    <td><label for="buyer_price_range">Preferred Price Range:</label></td>
-                    <td><input type="range" id="buyer_price_range" name="buyer_price_range" min="10" max="1000"></td>
-                </tr>
-                <tr>
-                    <td><label for="buyer_diet">Dietary Preferences:</label></td>
-                    <td>
-                        <select id="buyer_diet" name="buyer_diet">
-                            <optgroup label="Vegetarian Options">
-                                <option value="vegetarian">Vegetarian</option>
-                                <option value="vegan">Vegan</option>
-                            </optgroup>
-                            <optgroup label="Special Diets">
-                                <option value="gluten_free">Gluten-Free</option>
-                                <option value="keto">Keto</option>
-                            </optgroup>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td><label for="buyer_notes">Additional Instructions:</label></td>
-                    <td><textarea id="buyer_notes" name="buyer_notes" rows="4" cols="30"></textarea></td>
-                </tr>
-                <tr>
-                    <td><label for="buyer_profile">Upload Profile Picture:</label></td>
-                    <td><input type="file" id="buyer_profile" name="buyer_profile"></td>
-                </tr>
-               
-                <tr>
-                    <td><label for="buyer_offers">Subscribe to Offers:</label></td>
-                    <td><input type="checkbox" id="buyer_offers" name="buyer_offers" value="yes"></td>
-                </tr>
-           
-        <button type="submit">Register as Buyer</button>
+            <div class="form-group">
+                <label for="buyer_price_range">Preferred Price Range:</label>
+                <input type="range" id="buyer_price_range" name="buyer_price_range" min="10" max="1000">
+            </div>
+            <div class="form-group">
+                <label for="buyer_diet">Dietary Preferences:</label>
+                <select id="buyer_diet" name="buyer_diet">
+                    <optgroup label="Vegetarian Options">
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="vegan">Vegan</option>
+                    </optgroup>
+                    <optgroup label="Special Diets">
+                        <option value="gluten_free">Gluten-Free</option>
+                        <option value="keto">Keto</option>
+                    </optgroup>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="buyer_notes">Additional Instructions:</label>
+                <textarea id="buyer_notes" name="buyer_notes" rows="4" cols="30"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="buyer_profile">Upload Profile Picture:</label>
+                <input type="file" id="buyer_profile" name="buyer_profile">
+            </div>
+            <div class="form-group">
+                <label for="buyer_offers">Subscribe to Offers:</label>
+                <input type="checkbox" id="buyer_offers" name="buyer_offers" value="yes">
+            </div>
+            <button type="submit">Submit</button>
+            <button type="reset">Reset</button>
+        </fieldset>
     </form>
-
 </body>
 </html>

@@ -1,3 +1,87 @@
-*{
-    margin: 20px;
+/* Background Image */
+#background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Send the background behind other content */
+}
+
+/* Terms and Conditions Box */
+#terms-box {
+    position: fixed; /* Fixed position to keep it visible while scrolling */
+    top: 20px;
+    left: 20px;
+    width: 300px;
+    height: 30%; /* Set height to 30% of the viewport */
+    background-color: #ffeb3b; /* Yellow background */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+#terms-box h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.terms-content {
+    font-size: 14px;
+    line-height: 1.5;
+    max-height: calc(100% - 40px); /* Adjust height to fit inside the box */
+    overflow-y: auto; /* Ensure scrolling for the content */
+}
+
+/* Main Content Styling */
+#buyer-form {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    width: 50%;
+    margin: auto;
+    border: 2px solid #4caf50;
+    margin-left: 350px; /* Add margin to avoid overlapping with the terms box */
+    z-index: 1; /* Ensure the form appears above the background */
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    display: block;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #388e3c;
 }
