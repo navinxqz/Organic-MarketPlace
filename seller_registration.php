@@ -82,6 +82,21 @@
                         <td>Password:</td>
                         <td><input type="password" name="password" required></td>
                     </tr>
+                    <tr>
+                        <td colspan="2">
+                            <fieldset>
+                                <legend>Terms and Conditions</legend>
+                                <div class="terms-box">
+                                    1. Sellers must ensure that all products listed are organic and meet the marketplace's quality standards.<br>
+                                    2. Sellers are responsible for accurate product descriptions and timely order fulfillment.<br>
+                                    3. Any disputes or complaints will be resolved as per the marketplace's policies.<br>
+                                    4. The marketplace reserves the right to remove any seller or product that violates the terms.<br>
+                                    5. By registering, you agree to comply with all applicable laws and regulations.
+                                </div><br>
+                                <input type="checkbox" name="agree_terms" required> I agree to the terms and conditions
+                            </fieldset>
+                        </td>
+                    </tr>
                 </table>
             </fieldset>
 
