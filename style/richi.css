@@ -7,10 +7,9 @@
     bottom: 0;
     width: 300%;
     height: 300%;
-    background-image: url('./assets/image.png'); /* Replace with your image path */
-    /* background-size: cover;
-    background-position: center; */
-    z-index: 2; /* Send the background behind other content */
+    background-image: url('./assets/image.png'); 
+   
+    z-index: 2; 
 }
 .heading{
     text-align: center;
@@ -20,22 +19,22 @@
 }
 /* Form Group Styling */
 .form-group {
-    display: flex; /* Use flexbox for alignment */
-    justify-content: space-between; /* Space between label and input */
-    align-items: center; /* Align items vertically */
-    margin-bottom: 15px; /* Add spacing between form groups */
+    display: flex; 
+    justify-content: space-between;
+    align-items: center; 
+    margin-bottom: 15px; 
 }
 
 .form-group label {
-    flex: 1; /* Take up space on the left */
-    text-align: left; /* Align label text to the left */
-    font-weight: bold; /* Make the label bold */
+    flex: 1; 
+    text-align: left; 
+    font-weight: bold; 
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-    flex: 2; /* Take up space on the right */
+    flex: 2; 
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -74,19 +73,19 @@
 }
 
 #terms-box {
-    position: fixed; /* Fixed position to keep it visible while scrolling */
+    position: fixed; 
     top: 100px;
     left: 20px;
     width: 300px;
-    height: 30%; /* Set height to 30% of the viewport */
-    background-color: #ffeb3b; /* Yellow background */
+    height: 30%; 
+    background-color: #86c0d8; 
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 15px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    overflow-y: auto; /* Enable vertical scrolling */
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    z-index: 1000; /* Ensure it appears above other elements */
+    overflow-y: scroll; 
+    overflow-x: hidden; 
+    z-index: 1; 
 }
 
 #terms-box h3 {
@@ -98,8 +97,7 @@
 .terms-content {
     font-size: 14px;
     line-height: 1.5;
-    max-height: calc(100% - 40px); /* Adjust height to fit inside the box */
-    /* overflow-y: auto; Ensure scrolling for the content */
+    max-height: calc(100% - 40px); 
 }
 
 /* Main Content Styling */
@@ -110,10 +108,10 @@
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
     width: 50%;
     margin: auto;
-    border: 2px solid #4caf50;
+    border: 5px solid #5a76cf;
     margin-top: -70px;
-    margin-left: 350px; /* Add margin to avoid overlapping with the terms box */
-    z-index: 1; /* Ensure the form appears above the background */
+    margin-left: 350px; 
+    z-index: 1; 
 }
 
 .form-group {
@@ -134,18 +132,18 @@ input, select, textarea {
     font-size: 14px;
 }
 button {
-    background-color: #4caf50;
+    background-color: #6ef075;
     color: white;
     border: none;
     padding: 12px 20px;
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
-    margin-top: 10px;
+    margin-top: 20px;
     display: inline-block;
     width: 50%;
 }
 
 button:hover {
-    background-color: #388e3c;
+    background-color: #d38eb8;
 }

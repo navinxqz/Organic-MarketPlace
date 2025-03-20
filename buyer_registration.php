@@ -36,7 +36,7 @@
                 <label>Gender:</label>
                 <input type="radio" name="buyer_gender" value="male" required> Male
                 <input type="radio" name="buyer_gender" value="female" required> Female
-                <input type="radio" name="buyer_gender" value="other" required> Other
+                <!-- <input type="radio" name="buyer_gender" value="other" required> Other -->
             </div>
         </fieldset>
 
