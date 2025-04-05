@@ -18,24 +18,24 @@
             <legend>Personal Details</legend>
             <div class="form-group">
                 <label for="buyer_name">Full Name:</label>
-                <input type="text" id="buyer_name" name="buyer_name" required>
+                <input type="text" id="buyer_name" name="buyer_name" >
             </div>
             <div class="form-group">
                 <label for="buyer_email">Email Address:</label>
-                <input type="email" id="buyer_email" name="buyer_email" required>
+                <input type="email" id="buyer_email" name="buyer_email" >
             </div>
             <div class="form-group">
                 <label for="buyer_password">Password:</label>
-                <input type="password" id="buyer_password" name="buyer_password" required>
+                <input type="password" id="buyer_password" name="buyer_password">
             </div>
             <div class="form-group">
                 <label for="buyer_dob">Date of Birth:</label>
-                <input type="date" id="buyer_dob" name="buyer_dob" required>
+                <input type="date" id="buyer_dob" name="buyer_dob" >
             </div>
             <div class="form-group">
                 <label>Gender:</label>
-                <input type="radio" name="buyer_gender" value="male" required> Male
-                <input type="radio" name="buyer_gender" value="female" required> Female
+                <input type="radio" name="buyer_gender" value="male" > Male
+                <input type="radio" name="buyer_gender" value="female" > Female
                 <!-- <input type="radio" name="buyer_gender" value="other" required> Other -->
             </div>
         </fieldset>
