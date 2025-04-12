@@ -31,29 +31,6 @@ body {
     /* padding: 15px; */
     z-index: 1000;
 }
-/* Sidebar */
-/* .sidebar {
-    position: absolute;
-    left: 0;
-    top: 60px;
-    width: 220px;
-    background-color: #34495e;
-    padding: 15px;
-    color: white;
-    height: 100vh;
-}
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-.sidebar ul li {
-    margin: 15px 0;
-}
-.sidebar ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-} */
 
 .form-container {
     max-width: 600px;
@@ -124,8 +101,12 @@ footer {
     /* margin-top: 20px; */
 }
 .error {
+    display: block;
+    opacity: 1 !important; /* just in case */
+    visibility: visible;
+    transition: opacity 0.3s ease;
     color: red;
     font-size: 13px;
     margin-top: 5px;
+    font-weight: bold;
 }
-

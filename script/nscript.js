@@ -1,47 +1,72 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const form = document.querySelector("form");
+document.getElementById("sellerForm").addEventListener("submit", function (e) {
+    let valid = true;
 
-    form.addEventListener("submit", function (e) {
-        let isValid = true;
+    // Clear all previous errors
+    document.querySelectorAll(".error").forEach(el => el.innerHTML = "");
 
-        document.getElementById("fnameErr").innerHTML = "";
-        document.getElementById("phoneErr").innerHTML = "";
-        document.getElementById("nidErr").innerHTML = "";
-        document.getElementById("usernameErr").innerHTML = "";
-        document.getElementById("passwordErr").innerHTML = "";
+    const fname = document.getElementById("fname").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const nid = document.getElementById("nid").value.trim();
+    const sellerType = document.getElementById("seller_type").value;
+    const categoryChecked = document.querySelector('input[name="seller_category"]:checked');
+    const sellerArea = document.getElementById("seller_area").value;
+    const username = document.getElementById("username").value.trim();
+    const password = document.getElementById("password").value.trim();
+    const agreeTerms = document.getElementById("agree_terms").checked;
 
-        const fname = document.getElementById("fname").value.trim();
-        const phone = document.getElementById("phone").value.trim();
-        const nid = document.getElementById("nid").value.trim();
-        const username = document.getElementById("username").value.trim();
-        const password = document.getElementById("password").value.trim();
+    // Full name
+    if (fname === "") {
+        document.getElementById("fnameErr").innerHTML = "Full name is required.";
+        valid = false;
+    }
 
-        if (fname.length < 3) {
-            document.getElementById("fnameErr").innerHTML = "Full Name must be at least 3 characters.";
-            isValid = false;
-        }
-        if (!/^\d{11}$/.test(phone)) {
-            document.getElementById("phoneErr").innerHTML = "Phone must be exactly 11 digits.";
-            isValid = false;
-        }
+    // Phone
+    if (phone === "") {
+        document.getElementById("phoneErr").innerHTML = "Phone number is required.";
+        valid = false;
+    }
 
-        // NID Validation (10, 13, or 17 digits)
-        if (!/^\d{10}$|^\d{13}$|^\d{17}$/.test(nid)) {
-            document.getElementById("nidErr").innerHTML = "NID must be 10, 13, or 17 digits long.";
-            isValid = false;
-        }
-        if (username.length < 5) {
-            document.getElementById("usernameErr").innerHTML = "Username must be at least 5 characters.";
-            isValid = false;
-        }
-        if (password.length < 6 || !/\d/.test(password)) {
-            document.getElementById("passwordErr").innerHTML = "Password must be at least 6 characters and include a number.";
-            isValid = false;
-        }
+    // NID
+    if (nid === "") {
+        document.getElementById("nidErr").innerHTML = "NID number is required.";
+        valid = false;
+    }
 
-        // If any validation failed, prevent form submission
-        if (!isValid) {
-            e.preventDefault();
-        }
-    });
+    // Seller Type
+    if (sellerType === "") {
+        document.getElementById("sellerTypeErr").innerHTML = "Please select a seller type.";
+        valid = false;
+    }
+
+    // Seller Category
+    if (!categoryChecked) {
+        document.getElementById("categoryErr").innerHTML = "Please select a business category.";
+        valid = false;
+    }
+
+    // Seller Area
+    if (sellerArea === "") {
+        document.getElementById("areaErr").innerHTML = "Please select a business area.";
+        valid = false;
+    }
+    if (username === "") {
+        document.getElementById("usernameErr").innerHTML = "Username is required.";
+        valid = false;
+    }
+
+    // Password
+    if (password === "") {
+        document.getElementById("passwordErr").innerHTML = "Password is required.";
+        valid = false;
+    }
+
+    // Terms and Conditions
+    if (!agreeTerms) {
+        document.getElementById("termsErr").innerHTML = "You must agree to the terms and conditions.";
+        valid = false;
+    }
+
+    if (!valid) {
+        e.preventDefault(); // Prevent form from submitting if any validation failed
+    }
 });
