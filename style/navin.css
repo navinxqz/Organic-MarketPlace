@@ -123,3 +123,9 @@ footer {
     color: white;
     /* margin-top: 20px; */
 }
+.error {
+    color: red;
+    font-size: 13px;
+    margin-top: 5px;
+}
+

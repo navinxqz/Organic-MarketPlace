@@ -21,15 +21,19 @@
                 <table>
                     <tr>
                         <td>Full Name:</td>
-                        <td><input type="text" name="fname"></td>
+                        <td><input type="text" name="fname" id="fname">
+                        <div class="error" id="fnameErr"></div></td>
                     </tr>
                     <tr>
                         <td>Phone:</td>
-                        <td><input type="text" name="phone"></td>
+                        <td><input type="text" name="phone" id="phone">
+                        <div class="error" id="phoneErr"></div></td>
                     </tr>
                     <tr>
                         <td>National ID (NID):</td>
-                        <td><input type="text" name="nid"></td>
+                    <td>
+                        <input type="text" name="nid" id="nid">
+                        <div class="error" id="nidErr"></div></td>
                     </tr>
                     <tr>
                         <td>Type of Seller:</td>
@@ -66,11 +70,16 @@
                     </tr>
                     <tr>
                         <td>Username:</td>
-                        <td><input type="text" name="username"></td>
+                        <td>
+                        <input type="text" name="username" id="username">
+                        <div class="error" id="usernameErr"></div></td>
                     </tr>
                     <tr>
                         <td>Password:</td>
-                        <td><input type="password" name="password"></td>
+                        <td>
+                            <input type="password" name="password" id="password">
+                            <div class="error" id="passwordErr"></div>
+                        </td>
                     </tr>
                     <tr>
                         <td colspan="2">
@@ -104,5 +113,6 @@
         <p>&copy; 2025 Organic Food Marketplace. All rights reserved.</p>
     </footer>
 
+    <script src ="./script/nscript.js"></script>
 </body>
 </html>
