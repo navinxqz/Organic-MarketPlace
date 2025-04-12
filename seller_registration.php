@@ -12,16 +12,6 @@
         <img src="./assets/top.jpeg" alt="Organic Food Marketplace">
     </div>
 
-    <!-- Sidebar -->
-    <!-- <div class="sidebar">
-        <h3>Menu</h3>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </div> -->
-
     <!-- Main Content -->
     <div class="form-container">
         <h2 class="form-title">Seller Registration</h2>
@@ -31,20 +21,20 @@
                 <table>
                     <tr>
                         <td>Full Name:</td>
-                        <td><input type="text" name="fname" required></td>
+                        <td><input type="text" name="fname"></td>
                     </tr>
                     <tr>
                         <td>Phone:</td>
-                        <td><input type="text" name="phone" required></td>
+                        <td><input type="text" name="phone"></td>
                     </tr>
                     <tr>
                         <td>National ID (NID):</td>
-                        <td><input type="text" name="nid" required></td>
+                        <td><input type="text" name="nid"></td>
                     </tr>
                     <tr>
                         <td>Type of Seller:</td>
                         <td>
-                            <select name="seller_type" required>
+                            <select name="seller_type">
                                 <option value="Farmer">Farmer</option>
                                 <option value="Home-based Producer">Home-based Producer</option>
                                 <option value="Other">Other</option>
@@ -54,18 +44,18 @@
                     <tr>
                         <td>Business Category:</td>
                         <td>
-                            <input type="radio" id="grocery" name="seller_category" value="grocery" required>
+                            <input type="radio" id="grocery" name="seller_category" value="grocery">
                             <label for="grocery">Grocery</label>
-                            <input type="radio" id="organic" name="seller_category" value="organic" required>
+                            <input type="radio" id="organic" name="seller_category" value="organic">
                             <label for="organic">Organic Products</label>
-                            <input type="radio" id="wholesale" name="seller_category" value="wholesale" required>
+                            <input type="radio" id="wholesale" name="seller_category" value="wholesale">
                             <label for="wholesale">Wholesale</label>
                         </td>
                     </tr>
                     <tr>
                         <td>Business Area:</td>
                         <td>
-                            <select name="seller_area" required>
+                            <select name="seller_area">
                                 <option value="Dhaka">Dhaka</option>
                                 <option value="Sylhet">Sylhet</option>
                                 <option value="Barisal">Barisal</option>
@@ -76,11 +66,11 @@
                     </tr>
                     <tr>
                         <td>Username:</td>
-                        <td><input type="text" name="username" required></td>
+                        <td><input type="text" name="username"></td>
                     </tr>
                     <tr>
                         <td>Password:</td>
-                        <td><input type="password" name="password" required></td>
+                        <td><input type="password" name="password"></td>
                     </tr>
                     <tr>
                         <td colspan="2">
@@ -93,7 +83,7 @@
                                     4. The marketplace reserves the right to remove any seller or product that violates the terms.<br>
                                     5. By registering, you agree to comply with all applicable laws and regulations.
                                 </div><br>
-                                <input type="checkbox" name="agree_terms" required> I agree to the terms and conditions
+                                <input type="checkbox" name="agree_terms"> I agree to the terms and conditions
                             </fieldset>
                         </td>
                     </tr>
