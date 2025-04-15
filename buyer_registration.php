@@ -3,6 +3,7 @@
 <head>
     <title>Grocery Website - Login & Registration</title>
     <link rel="stylesheet" type="text/css" href="./style/richi.css">
+    <script src="./style/richi.js" defer></script>
 </head>
 <body>
     <div class="navbar">
@@ -12,26 +13,40 @@
         <img src="./assets/abc.jpeg" alt="Organic Food Marketplace">
     </div>
 
-    <form id="buyer-form" action="submit.php" method="post">
+    <form id="buyer-form" action="submit.php" method="post" onsubmit="return validateForm()">
         <h2 class="heading">Register as Buyer</h2>
         <fieldset>
             <legend>Personal Details</legend>
+ <!-- upper -->
+            <div id="name-error" class="error-message" style="color:red;"></div>
             <div class="form-group">
+                
                 <label for="buyer_name">Full Name:</label>
                 <input type="text" id="buyer_name" name="buyer_name" >
+                
             </div>
             <div class="form-group">
+ <!-- Same line left -->
+            
+                <div id="email-error" class="error-message" style="color:red;"> </div> <!-- Error message container -->
                 <label for="buyer_email">Email Address:</label>
-                <input type="email" id="buyer_email" name="buyer_email" >
+                <input type="email" id="buyer_email" name="buyer_email">
             </div>
-            <div class="form-group">
+                
+            
+            <div class="form-group" >
                 <label for="buyer_password">Password:</label>
                 <input type="password" id="buyer_password" name="buyer_password">
+<!--same line right -->
+                <div id="password-error" class="error-message" style="color:red;"></div>
             </div>
             <div class="form-group">
                 <label for="buyer_dob">Date of Birth:</label>
-                <input type="date" id="buyer_dob" name="buyer_dob" >
+                <input type="date" id="buyer_dob" name="buyer_dob">
+                
             </div>
+<!--lower-->
+            <div id="dob-error" class="error-message" style="color:red;"></div>
             <div class="form-group">
                 <label>Gender:</label>
                 <input type="radio" name="buyer_gender" value="male" > Male
@@ -70,6 +85,7 @@
             <div class="form-group">
                 <input type="checkbox" id="buyer_offers" name="buyer_offers" value="yes">
                 <label for="buyer_offers">I agree to the terms and condition</label>
+                <div id="checkbox-error" class="error-message"></div>
             </div>
         </fieldset>
 
@@ -94,5 +110,6 @@
         <button type="submit">Submit</button>
         <button type="reset">Reset</button>
     </form>
+    
 </body>
 </html>
