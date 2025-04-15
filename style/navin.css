@@ -101,12 +101,8 @@ footer {
     /* margin-top: 20px; */
 }
 .error {
-    display: block;
-    opacity: 1 !important; /* just in case */
-    visibility: visible;
+    background-color: yellow;
     transition: opacity 0.3s ease;
     color: red;
-    font-size: 13px;
-    margin-top: 5px;
     font-weight: bold;
 }
