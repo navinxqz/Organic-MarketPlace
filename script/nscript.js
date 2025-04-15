@@ -17,7 +17,7 @@ document.getElementById("sellerForm").addEventListener("submit", function (e){
         document.getElementById("fnameErr").innerHTML = "Full name is required.";
         valid = false;
     }
-    if (phone === "") {
+    if (phone === ""){
         document.getElementById("phoneErr").innerHTML = "Phone number is required.";
         valid = false;
     }
@@ -50,6 +50,6 @@ document.getElementById("sellerForm").addEventListener("submit", function (e){
         valid = false;
     }
     if (!valid) {
-        e.preventDefault(); // Prevent form from submitting if any validation failed
+        e.preventDefault();
     }
 });

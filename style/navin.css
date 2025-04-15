@@ -101,7 +101,7 @@ footer {
     /* margin-top: 20px; */
 }
 .error {
-    background-color: yellow;
+    /* background-color: yellow; */
     transition: opacity 0.3s ease;
     color: red;
     font-weight: bold;
