@@ -1,82 +1,5 @@
-<?php
-$fnameErr = $phoneErr = $nidErr = $sellerTypeErr = $categoryErr = $areaErr = $usernameErr = $passwordErr = $termsErr = "";
-$fname = $phone = $nid = $sellerType = $category = $area = $username = $password = $terms = "";
-
-if($_SERVER["REQUEST_METHOD" == "POST"]){
-    if(empty($_POST["fname"])){
-        $fnameErr = "Full Name is required";
-    } else {
-        $fname = test_input($_POST["fname"]);
-        if(!preg_match("/^[a-zA-Z ]*$/",$fname)){
-            $fnameErr = "Only letters and white space allowed";
-        }
-    }
-    if(empty($_POST["phone"])){
-        $phoneErr = "Phone number is required";
-    } else {
-        $phone = test_input($_POST["phone"]);
-        if(!preg_match("/^[0-9]{10}$/",$phone)){
-            $phoneErr = "Invalid phone number format";
-        }
-    }
-    if(empty($_POST["nid"])){
-        $nidErr = "National ID is required";
-    } else {
-        $nid = test_input($_POST["nid"]);
-        if(!preg_match("/^[0-9]{10}$/",$nid)){
-            $nidErr = "Invalid NID format";
-        }
-    }
-    if(empty($_POST["seller_type"])){
-        $sellerTypeErr = "Seller type is required";
-    } else {
-        $sellerType = test_input($_POST["seller_type"]);
-    }
-    if(empty($_POST["seller_category"])){
-        $categoryErr = "Seller category is required";
-    } else {
-        $category = test_input($_POST["seller_category"]);
-    }
-    if(empty($_POST["seller_area"])){
-        $areaErr = "Business area is required";
-    } else {
-        $area = test_input($_POST["seller_area"]);
-    }
-    if(empty($_POST["username"])){
-        $usernameErr = "Username is required";
-    } else {
-        $username = test_input($_POST["username"]);
-        if(!preg_match("/^[a-zA-Z0-9]*$/",$username)){
-            $usernameErr = "Only letters and numbers allowed";
-        }
-    }
-    if(empty($_POST["password"])){
-        $passwordErr = "Password is required";
-    } else {
-        $password = test_input($_POST["password"]);
-        if(strlen($password) < 6){
-            $passwordErr = "Password must be at least 6 characters long";
-        }
-    }
-    if(empty($_POST["agree_terms"])){
-        $termsErr = "You must agree to the terms and conditions";
-    } else {
-        $terms = test_input($_POST["agree_terms"]);
-    }
-
-    if(empty($fnameErr) && empty($phoneErr) && empty($nidErr) && empty($sellerTypeErr) && empty($categoryErr) && empty($areaErr) && empty($usernameErr) && empty($passwordErr) && empty($termsErr)){
-        echo "<h2>Registration Successful</h2>";
-    }
-}
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
-?>
-
 <!DOCTYPE html>
+<html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seller Registration - Organic Food Marketplace</title>
@@ -91,32 +14,104 @@ function test_input($data) {
         <img src="./assets/top.jpeg" alt="Organic Food Marketplace">
     </div>
 
+    <?php
+    $fnameErr = $phoneErr = $nidErr = $sellerTypeErr = $categoryErr = $areaErr = $usernameErr = $passwordErr = $termsErr = "";
+    $fname = $phone = $nid = $sellerType = $category = $area = $username = $password = $terms = "";
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        $isValid = true;
+
+        if(empty($_POST["fname"])){
+            $fnameErr = "Full Name is required";
+            $isValid = false;
+        } else {
+        $fname = htmlspecialchars($_POST["fname"]);
+        }
+    if(empty($_POST["phone"])){
+        $phoneErr = "Phone number is required";
+        $isValid = false;
+    } else {
+        $phone = htmlspecialchars($_POST["phone"]);
+    }
+    if(empty($_POST["nid"])){
+        $nidErr = "National ID is required";
+        $isValid = false;
+    } else {
+        $nid = htmlspecialchars($_POST["nid"]);
+    }
+    if(empty($_POST["seller_type"])){
+        $sellerTypeErr = "Seller type is required";
+        $isValid = false;
+    } else {
+        $sellerType = htmlspecialchars($_POST["seller_type"]);
+    }
+    if(empty($_POST["seller_category"])){
+        $categoryErr = "Seller category is required";
+        $isValid = false;
+    } else {
+        $category = htmlspecialchars($_POST["seller_category"]);
+    }
+    if(empty($_POST["seller_area"])){
+        $areaErr = "Business area is required";
+        $isValid = false;
+    } else {
+        $area = htmlspecialchars($_POST["seller_area"]);
+    }
+    if(empty($_POST["username"])){
+        $usernameErr = "Username is required";
+        $isValid = false;
+    } else {
+        $username = htmlspecialchars($_POST["username"]);
+    }
+    if(empty($_POST["password"])){
+        $passwordErr = "Password is required";
+        $isValid = false;
+    } else {
+        $password = htmlspecialchars($_POST["password"]);
+        if(strlen($password) < 6){
+            $passwordErr = "Password must be at least 6 characters long";
+            $isValid = false;
+        }
+    }
+    if(empty($_POST["agree_terms"])){
+        $termsErr = "You must agree to the terms and conditions";
+        $isValid = false;
+    } else {
+        $terms = htmlspecialchars($_POST["agree_terms"]);
+    }
+    if($isValid){
+        header("Location: submit.php?fname=$fname&phone=$phone&nid=$nid&sellerType=$sellerType&category=$category&area=$area&username=$username&password=$password");
+        exit();
+    }
+}
+?>
+
     <!-- Main Content -->
     <div class="form-container">
         <h2 class="form-title">Seller Registration</h2>
-        <form action="submit.php" method="post" id="sellerForm">
+        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" id="sellerForm">
             <fieldset>
                 <legend>Info</legend>
                 <table>
                     <tr>
                         <td>Full Name:</td>
                         <td>
-                            <input type="text" name="fname" id="fname">
-                            <div class="error" id="fnameErr"></div>
+                            <input type="text" name="fname" id="fname" value="<?php echo $fname; ?>">
+                            <div class="error" id="fnameErr"><?php echo $fnameErr; ?></div>
                         </td>
                     </tr>
                     <tr>
                         <td>Phone:</td>
                         <td>
-                            <input type="text" name="phone" id="phone">
-                            <div class="error" id="phoneErr"></div>
+                            <input type="text" name="phone" id="phone" value= "<?php echo $phone; ?>">
+                            <div class="error" id="phoneErr"><?php echo $phoneErr; ?></div>
                         </td>
                     </tr>
                     <tr>
                         <td>National ID (NID):</td>
                         <td>
-                            <input type="text" name="nid" id="nid">
-                            <div class="error" id="nidErr"></div>
+                            <input type="text" name="nid" id="nid" value="<?php echo $nid; ?>">
+                            <div class="error" id="nidErr"><?php echo $nidErr; ?></div>
                         </td>
                     </tr>
                     <tr>
@@ -124,23 +119,24 @@ function test_input($data) {
                         <td>
                             <select name="seller_type" id="seller_type">
                                 <option value="">--Select--</option>
-                                <option value="Farmer">Farmer</option>
-                                <option value="Home-based Producer">Home-based Producer</option>
-                                <option value="Other">Other</option>
+                                <option value="Farmer"<?php if ($sellerType == "Farmer") echo "selected"; ?>>Farmer</option>
+                                <option value="Home-based Producer"<?php if ($sellerType == "Home-based Producer") echo "selected"; ?>>Home-based Producer</option>
+                                <option value="Other"<?php if ($sellerType == "Other") echo "selected"; ?>>Other</option>
                             </select>
-                            <div class="error" id="sellerTypeErr"></div>
+                            <div class="error" id="sellerTypeErr"><?php echo $sellerTypeErr; ?></div>
                         </td>
                     </tr>
                     <tr>
                         <td>Business Category:</td>
                         <td>
-                            <input type="radio" id="grocery" name="seller_category" value="grocery">
+                            <input type="radio" id="grocery" name="seller_category" value="grocery"<?php if ($category == "grocery") echo "checked"; ?>>
                             <label for="grocery">Grocery</label>
-                            <input type="radio" id="organic" name="seller_category" value="organic">
+                            <input type="radio" id="organic" name="seller_category" value="organic" <?php if ($category == "organic") echo "checked"; ?>>
                             <label for="organic">Organic Products</label>
-                            <input type="radio" id="wholesale" name="seller_category" value="wholesale">
+                            <input type="radio" id="wholesale" name="seller_category" value="wholesale"<?php if ($category == "wholesale") echo "checked"; ?>>
                             <label for="wholesale">Wholesale</label>
-                            <div class="error" id="categoryErr"></div>
+
+                            <div class="error" id="categoryErr"><?php echo $categoryErr; ?></div>
                         </td>
                     </tr>
                     <tr>
@@ -148,27 +144,28 @@ function test_input($data) {
                         <td>
                             <select name="seller_area" id="seller_area">
                                 <option value="">--Select--</option>
-                                <option value="Dhaka">Dhaka</option>
-                                <option value="Sylhet">Sylhet</option>
-                                <option value="Barisal">Barisal</option>
-                                <option value="Chittagong">Chittagong</option>
-                                <option value="Khulna">Khulna</option>
+                                <option value="Dhaka"<?php if ($area == "Dhaka") echo "selected"; ?>>Dhaka</option>
+                                <option value="Sylhet" <?php if ($area == "Sylhet") echo "selected"; ?>>Sylhet</option>
+                                <option value="Barisal"<?php if ($area == "Barisal") echo "selected"; ?>>Barisal</option>
+                                <option value="Chittagong"<?php if ($area == "Chittagong") echo "selected"; ?>>Chittagong</option>
+                                <option value="Khulna"<?php if ($area == "Khulna") echo "selected"; ?>>Khulna</option>
                             </select>
-                            <div class="error" id="areaErr"></div>
+                            <div class="error" id="areaErr"><?php echo $areaErr; ?></div>
                         </td>
                     </tr>
                     <tr>
                         <td>Username:</td>
                         <td>
-                            <input type="text" name="username" id="username">
-                            <div class="error" id="usernameErr"></div>
+                            <input type="text" name="username" id="username"value="<?php echo $username; ?>">
+                            <div class="error" id="usernameErr"><?php echo $usernameErr; ?></div>
+                            </td>
                         </td>
                     </tr>
                     <tr>
                         <td>Password:</td>
                         <td>
-                            <input type="password" name="password" id="password">
-                            <div class="error" id="passwordErr"></div>
+                            <input type="password" name="password" id="password"value="<?php echo $password; ?>">
+                            <div class="error" id="passwordErr"><?php echo $passwordErr; ?></div>
                         </td>
                     </tr>
                     <tr>
@@ -182,8 +179,8 @@ function test_input($data) {
                                     4. The marketplace reserves the right to remove any seller or product that violates the terms.<br>
                                     5. By registering, you agree to comply with all applicable laws and regulations.
                                 </div><br>
-                                <input type="checkbox" name="agree_terms" id="agree_terms"> I agree to the terms and conditions
-                                <div class="error" id="termsErr"></div>
+                                <input type="checkbox" name="agree_terms" id="agree_terms"<?php if ($terms) echo "checked"; ?>> I agree to the terms and conditions
+                                <div class="error" id="termsErr"><?php echo $termsErr; ?></div>
                             </fieldset>
                         </td>
                     </tr>
