@@ -1,27 +1,30 @@
+<?php
+include "rsubmit.php"
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Grocery Website - Login & Registration</title>
- <link rel="stylesheet" type="text/css" href="./style/richi.css">
+ <link rel="stylesheet" type="text/css" href="richi.css">
 </head>
 <body>
     <div class="navbar">
         <h2>Organic Food Marketplace</h2>
     </div>
     <div id="banner">
-        <img src="./assets/abc.jpeg" alt="Organic Food Marketplace">
+        <img src="../assets/abc.jpeg" alt="Organic Food Marketplace">
     </div>
 
     <?php
-    // Initialize error messages and variables
+   
     $nameError = $emailError = $passwordError = $dobError = $genderError = $checkboxError = "";
     $name = $email = $password = $dob = $gender = $offers = "";
 
-    // Check if the form is submitted
+   
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $isValid = true;
 
-        // Full Name Validation
+      
         if (empty($_POST["buyer_name"])) {
             $nameError = "Full Name is required.";
             $isValid = false;
@@ -29,7 +32,7 @@
             $name = htmlspecialchars($_POST["buyer_name"]);
         }
 
-        // Email Validation
+      
         if (empty($_POST["buyer_email"])) {
             $emailError = "Email Address is required.";
             $isValid = false;
@@ -40,7 +43,7 @@
             $email = htmlspecialchars($_POST["buyer_email"]);
         }
 
-        // Password Validation
+      
         if (empty($_POST["buyer_password"])) {
             $passwordError = "Password is required.";
             $isValid = false;
@@ -51,7 +54,7 @@
             $password = htmlspecialchars($_POST["buyer_password"]);
         }
 
-        // Date of Birth Validation
+      
         if (empty($_POST["buyer_dob"])) {
             $dobError = "Date of Birth is required.";
             $isValid = false;
@@ -59,7 +62,7 @@
             $dob = htmlspecialchars($_POST["buyer_dob"]);
         }
 
-        // Gender Validation
+    
         if (empty($_POST["buyer_gender"])) {
             $genderError = "Please select your gender.";
             $isValid = false;
@@ -67,7 +70,7 @@
             $gender = htmlspecialchars($_POST["buyer_gender"]);
         }
 
-        // Checkbox Validation
+     
         if (empty($_POST["buyer_offers"])) {
             $checkboxError = "You must agree to the terms and conditions.";
             $isValid = false;
@@ -75,15 +78,15 @@
             $offers = htmlspecialchars($_POST["buyer_offers"]);
         }
 
-        // If all validations pass, redirect to submit.php
+       
         if ($isValid) {
-            header("Location: submit.php?name=$name&email=$email&dob=$dob&gender=$gender");
+            header("Location: rsubmit.php?name=$name&email=$email&dob=$dob&gender=$gender");
             exit();
         }
     }
     ?>
 
-    <form id="buyer-form" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+    <form id="buyer-form" action="" method="post">
         <h2 class="heading">Register as Buyer</h2>
         <fieldset>
            
