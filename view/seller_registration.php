@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seller Registration - Organic Food Marketplace</title>
-    <link rel="stylesheet" type="text/css" href="./style/navin.css">
+    <link rel="stylesheet" type="text/css" href="../style/navin.css">
 </head>
 <body>
     <div class="navbar">
@@ -11,7 +11,7 @@
     </div>
 
     <div id="banner">
-        <img src="./assets/top.jpeg" alt="Organic Food Marketplace">
+        <img src="../assets/top.jpeg" alt="Organic Food Marketplace">
     </div>
 
 <?php
@@ -80,7 +80,7 @@
         $terms = htmlspecialchars($_POST["agree_terms"]);
     }
     if($isValid){
-        header("Location: ./view/submit.php?fname=$fname&phone=$phone&nid=$nid&sellerType=$sellerType&category=$category&area=$area&username=$username&password=$password");
+        header("Location: submit.php?fname=$fname&phone=$phone&nid=$nid&sellerType=$sellerType&category=$category&area=$area&username=$username&password=$password");
         exit();
     }
 }
@@ -119,9 +119,9 @@
                         <td>
                             <select name="seller_type" id="seller_type">
                                 <option value="">--Select--</option>
-                                <option value="Farmer"<?php if ($sellerType == "Farmer") echo "selected"; ?>>Farmer</option>
-                                <option value="Home-based Producer"<?php if ($sellerType == "Home-based Producer") echo "selected"; ?>>Home-based Producer</option>
-                                <option value="Other"<?php if ($sellerType == "Other") echo "selected"; ?>>Other</option>
+                                <option name= "seller_type" value="Farmer"<?php if ($sellerType == "Farmer") echo "selected"; ?>>Farmer</option>
+                                <option name= "seller_type" value="Home-based Producer"<?php if ($sellerType == "Home-based Producer") echo "selected"; ?>>Home-based Producer</option>
+                                <option name= "seller_type" value="Other"<?php if ($sellerType == "Other") echo "selected"; ?>>Other</option>
                             </select>
                             <div class="error" id="sellerTypeErr"><?php echo $sellerTypeErr; ?></div>
                         </td>
@@ -195,7 +195,7 @@
     </div>
 
     <div id="banner">
-        <img src="./assets/footer.jpeg" alt="Organic Food Marketplace">
+        <img src="../assets/footer.jpeg" alt="Organic Food Marketplace">
     </div>
 
     <footer>
