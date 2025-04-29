@@ -103,6 +103,8 @@ footer {
 .error {
     /* background-color: yellow; */
     transition: opacity 0.3s ease;
-    color: red;
-    font-weight: bold;
+    color: rgb(245, 112, 112);
+    padding-left: 25%;
+    padding-top: 0.5vh;
+    /* font-weight: bold; */
 }

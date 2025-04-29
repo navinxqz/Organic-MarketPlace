@@ -14,7 +14,7 @@
         <img src="./assets/top.jpeg" alt="Organic Food Marketplace">
     </div>
 
-    <?php
+<?php
     $fnameErr = $phoneErr = $nidErr = $sellerTypeErr = $categoryErr = $areaErr = $usernameErr = $passwordErr = $termsErr = "";
     $fname = $phone = $nid = $sellerType = $category = $area = $username = $password = $terms = "";
 
@@ -80,7 +80,7 @@
         $terms = htmlspecialchars($_POST["agree_terms"]);
     }
     if($isValid){
-        header("Location: submit.php?fname=$fname&phone=$phone&nid=$nid&sellerType=$sellerType&category=$category&area=$area&username=$username&password=$password");
+        header("Location: ./view/submit.php?fname=$fname&phone=$phone&nid=$nid&sellerType=$sellerType&category=$category&area=$area&username=$username&password=$password");
         exit();
     }
 }
