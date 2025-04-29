@@ -1,3 +1,82 @@
+<?php
+$fnameErr = $phoneErr = $nidErr = $sellerTypeErr = $categoryErr = $areaErr = $usernameErr = $passwordErr = $termsErr = "";
+$fname = $phone = $nid = $sellerType = $category = $area = $username = $password = $terms = "";
+
+if($_SERVER["REQUEST_METHOD" == "POST"]){
+    if(empty($_POST["fname"])){
+        $fnameErr = "Full Name is required";
+    } else {
+        $fname = test_input($_POST["fname"]);
+        if(!preg_match("/^[a-zA-Z ]*$/",$fname)){
+            $fnameErr = "Only letters and white space allowed";
+        }
+    }
+    if(empty($_POST["phone"])){
+        $phoneErr = "Phone number is required";
+    } else {
+        $phone = test_input($_POST["phone"]);
+        if(!preg_match("/^[0-9]{10}$/",$phone)){
+            $phoneErr = "Invalid phone number format";
+        }
+    }
+    if(empty($_POST["nid"])){
+        $nidErr = "National ID is required";
+    } else {
+        $nid = test_input($_POST["nid"]);
+        if(!preg_match("/^[0-9]{10}$/",$nid)){
+            $nidErr = "Invalid NID format";
+        }
+    }
+    if(empty($_POST["seller_type"])){
+        $sellerTypeErr = "Seller type is required";
+    } else {
+        $sellerType = test_input($_POST["seller_type"]);
+    }
+    if(empty($_POST["seller_category"])){
+        $categoryErr = "Seller category is required";
+    } else {
+        $category = test_input($_POST["seller_category"]);
+    }
+    if(empty($_POST["seller_area"])){
+        $areaErr = "Business area is required";
+    } else {
+        $area = test_input($_POST["seller_area"]);
+    }
+    if(empty($_POST["username"])){
+        $usernameErr = "Username is required";
+    } else {
+        $username = test_input($_POST["username"]);
+        if(!preg_match("/^[a-zA-Z0-9]*$/",$username)){
+            $usernameErr = "Only letters and numbers allowed";
+        }
+    }
+    if(empty($_POST["password"])){
+        $passwordErr = "Password is required";
+    } else {
+        $password = test_input($_POST["password"]);
+        if(strlen($password) < 6){
+            $passwordErr = "Password must be at least 6 characters long";
+        }
+    }
+    if(empty($_POST["agree_terms"])){
+        $termsErr = "You must agree to the terms and conditions";
+    } else {
+        $terms = test_input($_POST["agree_terms"]);
+    }
+
+    if(empty($fnameErr) && empty($phoneErr) && empty($nidErr) && empty($sellerTypeErr) && empty($categoryErr) && empty($areaErr) && empty($usernameErr) && empty($passwordErr) && empty($termsErr)){
+        echo "<h2>Registration Successful</h2>";
+    }
+}
+function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+?>
+
+<!DOCTYPE html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seller Registration - Organic Food Marketplace</title>
@@ -126,6 +205,6 @@
         <p>&copy; 2025 Organic Food Marketplace. All rights reserved.</p>
     </footer>
 
-    <script src="./script/nscript.js"></script>
+    <!-- <script src="./script/nscript.js"></script> -->
 </body>
 </html>
