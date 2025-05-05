@@ -4,6 +4,7 @@ session_start();
     $fname = $phone = $nid = $sellerType = $category = $area = $username = $password = $terms= "";
 
     $form_submitted = false;
+    $success = '';
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $isValid = true;
@@ -81,4 +82,29 @@ session_start();
         $form_submitted = true;
     }
 }
+function Success(){
+    if(!isset($_SESSION['registration_data']) || empty($_SESSION['registration_data'])){
+        return '';
+    }
+    $data = $_SESSION['registration_data'];
+    unset($_SESSION['registration_data']);
+
+    $html = '
+    <div class="success">
+        <h2>Registration Successful!</h2>
+        <p>Thank you for registering, ' . htmlspecialchars($data['fname']) . '!</p>
+        <p>Your details:</p>
+        <ul>
+            <li>Full Name: ' . htmlspecialchars($data['fname']) . '</li>
+            <li>Phone Number: ' . htmlspecialchars($data['phone']) . '</li>
+            <li>National ID: ' . htmlspecialchars($data['nid']) . '</li>
+            <li>Seller Type: ' . htmlspecialchars($data['seller_type']) . '</li>
+            <li>Seller Category: ' . htmlspecialchars($data['seller_category']) . '</li>
+            <li>Business Area: ' . htmlspecialchars($data['seller_area']) . '</li>
+            <li>Username: ' . htmlspecialchars($data['username']) . '</li>
+        </ul>
+    </div>';
+    return $html;
+}
+$success = Success();
 ?>
