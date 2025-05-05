@@ -1,4 +1,5 @@
 <?php
+session_start();
 include "../control/ncontrol.php";
 ?>
 
@@ -17,11 +18,24 @@ include "../control/ncontrol.php";
     <div id="banner">
         <img src="../assets/top.jpeg" alt="Organic Food Marketplace">
     </div>
+    <?php if ($form_submitted && isset($_SESSION['registration_data'])): ?>
+<div class="success-message">
+    <h3>Thanks for registering!</h3>
+    <p><strong>Full Name:</strong> <?php echo $_SESSION['registration_data']['fname']; ?></p>
+    <p><strong>Phone:</strong> <?php echo $_SESSION['registration_data']['phone']; ?></p>
+    <p><strong>National ID:</strong> <?php echo $_SESSION['registration_data']['nid']; ?></p>
+    <p><strong>Seller Type:</strong> <?php echo $_SESSION['registration_data']['seller_type']; ?></p>
+    <p><strong>Category:</strong> <?php echo $_SESSION['registration_data']['seller_category']; ?></p>
+    <p><strong>Area:</strong> <?php echo $_SESSION['registration_data']['seller_area']; ?></p>
+    <p><strong>Username:</strong> <?php echo $_SESSION['registration_data']['username']; ?></p>
+    <!-- Don't show password in real application -->
+</div>
+<?php endif; ?>
 
     <!-- Main Content -->
     <div class="form-container">
         <h2 class="form-title">Seller Registration</h2>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" id="sellerForm">
+        <form action="seller_registration.php" method="post" id="sellerForm">
             <fieldset>
                 <legend>Info</legend>
                 <table>

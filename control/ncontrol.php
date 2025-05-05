@@ -1,6 +1,9 @@
 <?php
+session_start();
     $fnameErr = $phoneErr = $nidErr = $sellerTypeErr = $categoryErr = $areaErr = $usernameErr = $passwordErr = $termsErr = "";
-    $fname = $phone = $nid = $sellerType = $category = $area = $username = $password = $terms =$sub= "";
+    $fname = $phone = $nid = $sellerType = $category = $area = $username = $password = $terms= "";
+
+    $form_submitted = false;
 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $isValid = true;
@@ -50,7 +53,8 @@
     if(empty($_POST["password"])){
         $passwordErr = "Password is required";
         $isValid = false;
-    } else {
+    }
+     else {
         $password = htmlspecialchars($_POST["password"]);
         if(strlen($password) < 6){
             $passwordErr = "Password must be at least 6 characters long";
@@ -64,10 +68,17 @@
         $terms = htmlspecialchars($_POST["agree_terms"]);
     }
     if($isValid){
-        // header("Location: ../view/submit.php?fname=$fname&phone=$phone&nid=$nid&sellerType=$sellerType&category=$category&area=$area&username=$username&password=$password");
-        // exit();
-        $sub = "Submitted";
-        $sub = htmlspecialchars($_POST["submitinfo"]);
+        unset($_SESSION['registration_data']);
+        $_SESSION['registration_data'] = [
+            'fname' => $fname,
+            'phone' => $phone,
+            'nid' => $nid,
+            'seller_type' => $sellerType,
+            'seller_category' => $category,
+            'seller_area' => $area,
+            'username' => $username,
+        ];
+        $form_submitted = true;
     }
 }
 ?>
