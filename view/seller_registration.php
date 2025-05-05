@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include "../control/ncontrol.php";
 ?>
 
@@ -22,7 +22,7 @@ include "../control/ncontrol.php";
     <!-- Main Content -->
     <div class="form-container">
         <h2 class="form-title">Seller Registration</h2>
-        <form action="seller_registration.php" method="post" id="sellerForm">
+        <form method="post" id="sellerForm">
             <fieldset>
                 <legend>Info</legend>
                 <table>

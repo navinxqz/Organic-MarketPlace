@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
     $fnameErr = $phoneErr = $nidErr = $sellerTypeErr = $categoryErr = $areaErr = $usernameErr = $passwordErr = $termsErr = "";
     $fname = $phone = $nid = $sellerType = $category = $area = $username = $password = $terms= "";
 
