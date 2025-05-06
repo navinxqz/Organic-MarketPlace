@@ -1,4 +1,8 @@
 <?php
+<<<<<<< HEAD
+=======
+// session_start();
+>>>>>>> c3a5489174db4d917ecaf915a47d479edf971cff
 include "../control/ncontrol.php";
 ?>
 
@@ -18,6 +22,10 @@ include "../control/ncontrol.php";
         <img src="../assets/top.jpeg" alt="Organic Food Marketplace">
     </div>
 
+<<<<<<< HEAD
+=======
+    <!-- Main Content -->
+>>>>>>> c3a5489174db4d917ecaf915a47d479edf971cff
     <div class="form-container">
         <h2 class="form-title">Seller Registration</h2>
         <form method="post" id="sellerForm">
