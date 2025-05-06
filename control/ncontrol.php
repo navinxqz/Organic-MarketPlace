@@ -1,5 +1,4 @@
 <?php
-// session_start();
     $fnameErr = $phoneErr = $nidErr = $sellerTypeErr = $categoryErr = $areaErr = $usernameErr = $passwordErr = $termsErr = "";
     $fname = $phone = $nid = $sellerType = $category = $area = $username = $password = $terms= "";
 
@@ -89,8 +88,7 @@ function Success(){
     $data = $_SESSION['registration_data'];
     unset($_SESSION['registration_data']);
 
-    $html = '
-    <div class="success">
+    $msg = '<div class="success">
         <h2>Registration Successful!</h2>
         <p>Thank you for registering, ' . htmlspecialchars($data['fname']) . '!</p>
         <p>Your details:</p>
@@ -104,7 +102,7 @@ function Success(){
             <li>Username: ' . htmlspecialchars($data['username']) . '</li>
         </ul>
     </div>';
-    return $html;
+    return $msg;
 }
 $success = Success();
 ?>
