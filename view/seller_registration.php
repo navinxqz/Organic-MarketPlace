@@ -1,11 +1,8 @@
 <?php
-<<<<<<< HEAD
-=======
 // session_start();
->>>>>>> c3a5489174db4d917ecaf915a47d479edf971cff
 include "../control/ncontrol.php";
 ?>
-
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,15 +14,12 @@ include "../control/ncontrol.php";
     <div class="navbar">
         <h2>Organic Food Marketplace</h2>
     </div>
-
+ 
     <div id="banner">
         <img src="../assets/top.jpeg" alt="Organic Food Marketplace">
     </div>
-
-<<<<<<< HEAD
-=======
+ 
     <!-- Main Content -->
->>>>>>> c3a5489174db4d917ecaf915a47d479edf971cff
     <div class="form-container">
         <h2 class="form-title">Seller Registration</h2>
         <form method="post" id="sellerForm">
@@ -74,7 +68,7 @@ include "../control/ncontrol.php";
                             <label for="organic">Organic Products</label>
                             <input type="radio" id="wholesale" name="seller_category" value="wholesale"<?php if ($category == "wholesale") echo "checked"; ?>>
                             <label for="wholesale">Wholesale</label>
-
+ 
                             <div class="error" id="categoryErr"><?php echo $categoryErr; ?></div>
                         </td>
                     </tr>
@@ -126,7 +120,7 @@ include "../control/ncontrol.php";
                 </table>
             </fieldset>
             <div name="submitinfo" value=""></div>
-
+ 
             <div class="btn-container">
                 <input type="submit" value="Register">
                 <input type="reset" value="Reset">
@@ -134,15 +128,15 @@ include "../control/ncontrol.php";
             <?= $success ?>
         </form>
     </div>
-
+ 
     <div id="banner">
         <img src="../assets/footer.jpeg" alt="Organic Food Marketplace">
     </div>
-
+ 
     <footer>
         <p>&copy; 2025 Organic Food Marketplace. All rights reserved.</p>
     </footer>
-
+ 
     <!-- <script src="./script/nscript.js"></script> -->
 </body>
 </html>

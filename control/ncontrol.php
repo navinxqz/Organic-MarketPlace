@@ -1,17 +1,14 @@
 <?php
-<<<<<<< HEAD
-=======
 // session_start();
->>>>>>> c3a5489174db4d917ecaf915a47d479edf971cff
     $fnameErr = $phoneErr = $nidErr = $sellerTypeErr = $categoryErr = $areaErr = $usernameErr = $passwordErr = $termsErr = "";
     $fname = $phone = $nid = $sellerType = $category = $area = $username = $password = $terms= "";
-
+ 
     $form_submitted = false;
     $success = '';
-
+ 
     if($_SERVER["REQUEST_METHOD"] == "POST"){
         $isValid = true;
-
+ 
         if(empty($_POST["fname"])){
             $fnameErr = "Full Name is required";
             $isValid = false;
@@ -91,13 +88,9 @@ function Success(){
     }
     $data = $_SESSION['registration_data'];
     unset($_SESSION['registration_data']);
-
-<<<<<<< HEAD
-    $msg = '<div class="success">
-=======
+ 
     $html = '
     <div class="success">
->>>>>>> c3a5489174db4d917ecaf915a47d479edf971cff
         <h2>Registration Successful!</h2>
         <p>Thank you for registering, ' . htmlspecialchars($data['fname']) . '!</p>
         <p>Your details:</p>
@@ -111,11 +104,7 @@ function Success(){
             <li>Username: ' . htmlspecialchars($data['username']) . '</li>
         </ul>
     </div>';
-<<<<<<< HEAD
-    return $msg;
-=======
     return $html;
->>>>>>> c3a5489174db4d917ecaf915a47d479edf971cff
 }
 $success = Success();
 ?>
