@@ -22,7 +22,7 @@ include "../control/ncontrol.php";
     <!-- Main Content -->
     <div class="form-container">
         <h2 class="form-title">Seller Registration</h2>
-        <form method="post" id="sellerForm">
+        <form method="post" id="sellerForm" enctype="multipart/form-data">
             <fieldset>
                 <legend>Info</legend>
                 <table>
@@ -84,6 +84,13 @@ include "../control/ncontrol.php";
                                 <option value="Khulna"<?php if ($area == "Khulna") echo "selected"; ?>>Khulna</option>
                             </select>
                             <div class="error" id="areaErr"><?php echo $areaErr; ?></div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Profile Logo:</td>
+                        <td>
+                            <input type="file" name="myfile">
+                            <div class="error"><?php echo $imageErr; ?></div>
                         </td>
                     </tr>
                     <tr>

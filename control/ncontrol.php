@@ -1,7 +1,7 @@
 <?php
 // session_start();
-    $fnameErr = $phoneErr = $nidErr = $sellerTypeErr = $categoryErr = $areaErr = $usernameErr = $passwordErr = $termsErr = "";
-    $fname = $phone = $nid = $sellerType = $category = $area = $username = $password = $terms= "";
+    $fnameErr = $phoneErr = $nidErr = $sellerTypeErr = $categoryErr = $areaErr = $imageErr = $usernameErr = $passwordErr = $termsErr = "";
+    $fname = $phone = $nid = $sellerType = $category = $area = $img = $username = $password = $terms= "";
  
     $form_submitted = false;
     $success = '';
@@ -62,6 +62,26 @@
             $isValid = false;
         }
     }
+    if($_FILES["myfile"]["name"] != ""){
+        $type = ["image/jpg", "image/jpeg", "image/png"];
+        $fType = $_FILES["myfile"]["type"];
+
+        if(!in_array($fType, $type)){
+            $imageErr = "Invalid file type. Only JPG, JPEG and PNG are allowed.";
+            $isValid = false;
+        }else{
+            $d = "../uploads/";
+            $f = $d . basename($_FILES["myfile"]["name"]);
+       
+            if(move_uploaded_file($_FILES["myfile"]["tmp_name"], $f)){
+                $imageErr= "File uploaded successfully";
+            }else{
+                $imageErr = "File upload failed";
+                $isValid = false;
+            }
+        }
+    }
+
     if(empty($_POST["agree_terms"])){
         $termsErr = "You must agree to the terms and conditions";
         $isValid = false;
