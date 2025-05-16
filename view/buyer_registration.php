@@ -18,7 +18,7 @@
         <?php echo $output; ?>
     </div>
     
-    <form id="buyer-form" action="" method="post" >
+    <form id="buyer-form" action="" method="post" enctype="multipart/form-data">
         <h2 class="heading">Register as Buyer</h2>
         <fieldset>
            
@@ -79,6 +79,7 @@
             <div class="form-group">
                 <label for="buyer_profile">Upload Profile Picture:</label>
                 <input type="file" id="buyer_profile" name="buyer_profile">
+                <div class="error-message"> <?php echo $profilePictureError ; ?> </div>
             </div>
             <div class="form-group">
                 <input type="checkbox" id="buyer_offers" name="buyer_offers" value="yes" <?php echo ($offers == "yes") ? "checked" : ""; ?>>

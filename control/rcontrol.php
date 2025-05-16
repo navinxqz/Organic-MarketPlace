@@ -1,6 +1,6 @@
 <?php
    
-    $nameError = $emailError = $passwordError = $dobError = $genderError = $checkboxError = "";
+    $nameError = $emailError = $passwordError = $dobError = $genderError = $profilePictureError = $checkboxError = "";
     $name = $email = $password = $dob = $gender = $offers = "";
     $output = ""; 
    
@@ -53,6 +53,26 @@
             $gender = htmlspecialchars($_POST["buyer_gender"]);
         }
 
+
+        if(empty($_FILES["buyer_profile"]["name"])){
+            $profilePictureError = "Profile picture is required.";
+            $isValid = false;
+        } 
+        else {
+            $profilePicture = $_FILES["buyer_profile"]["tmp_name"];
+            $target_dir = "../uploads/";
+            $target_file = $_FILES["buyer_profile"]["name"];
+            if (move_uploaded_file($profilePicture, $target_dir.$_REQUEST ["buyer_email"]."-".$target_file)) 
+            {
+                $profilePicture = htmlspecialchars($target_file); // Sanitize the file path
+                $profilePictureError = "Profile picture uploaded successfully.";
+            }
+             else {
+                $profilePictureError = "Failed to upload the profile picture.";
+                $isValid = false;
+            }
+           }
+
      
         if (empty($_POST["buyer_offers"])) {
             $checkboxError = "You must agree to the terms and conditions.";
@@ -61,7 +81,8 @@
             $offers = htmlspecialchars($_POST["buyer_offers"]);
         }
 
-        if ($isValid) {
+        if ($isValid)
+         {
             $output = "<h2>Form Submitted Successfully</h2>
                        <p>Full Name: $name</p>
                        <p>Email: $email</p>
