@@ -62,14 +62,14 @@ include "../control/ncontrol.php";
                     <tr>
                         <td>Business Category:</td>
                         <td>
-                            <input type="radio" id="grocery" name="seller_category" value="grocery"<?php if ($category == "grocery") echo "checked"; ?>>
+                            <input type="radio" id="grocery" name="seller_category" value="grocery">
                             <label for="grocery">Grocery</label>
-                            <input type="radio" id="organic" name="seller_category" value="organic" <?php if ($category == "organic") echo "checked"; ?>>
+                            <input type="radio" id="organic" name="seller_category" value="organic">
                             <label for="organic">Organic Products</label>
-                            <input type="radio" id="wholesale" name="seller_category" value="wholesale"<?php if ($category == "wholesale") echo "checked"; ?>>
+                            <input type="radio" id="wholesale" name="seller_category" value="wholesale">
                             <label for="wholesale">Wholesale</label>
  
-                            <div class="error" id="categoryErr"><?php echo $categoryErr; ?></div>
+                            <div class="error" id="categoryErr"></div>
                         </td>
                     </tr>
                     <tr>

@@ -1,7 +1,7 @@
 <?php
 // session_start();
-    $fnameErr = $phoneErr = $nidErr = $sellerTypeErr = $categoryErr = $areaErr = $imageErr = $usernameErr = $passwordErr = $termsErr = "";
-    $fname = $phone = $nid = $sellerType = $category = $area = $img = $username = $password = $terms= "";
+    $fnameErr = $phoneErr = $nidErr = $sellerTypeErr = $areaErr = $imageErr = $usernameErr = $passwordErr = $termsErr = "";
+    $fname = $phone = $nid = $sellerType = $area = $img = $username = $password = $terms= "";
  
     $form_submitted = false;
     $success = '';
@@ -32,12 +32,6 @@
         $isValid = false;
     } else {
         $sellerType = htmlspecialchars($_POST["seller_type"]);
-    }
-    if(empty($_POST["seller_category"])){
-        $categoryErr = "Seller category is required";
-        $isValid = false;
-    } else {
-        $category = htmlspecialchars($_POST["seller_category"]);
     }
     if(empty($_POST["seller_area"])){
         $areaErr = "Business area is required";
@@ -71,9 +65,9 @@
             $isValid = false;
         }else{
             $d = "../uploads/";
-            $f = $d . basename($_FILES["myfile"]["name"]);
+            $f = $_FILES["myfile"]["name"];
        
-            if(move_uploaded_file($_FILES["myfile"]["tmp_name"], $f)){
+            if(move_uploaded_file($_FILES["myfile"]["tmp_name"], $d.$_REQUEST["username"]."-".$f)){
                 $imageErr= "File uploaded successfully";
             }else{
                 $imageErr = "File upload failed";
@@ -81,7 +75,6 @@
             }
         }
     }
-
     if(empty($_POST["agree_terms"])){
         $termsErr = "You must agree to the terms and conditions";
         $isValid = false;
