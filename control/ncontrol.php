@@ -1,4 +1,6 @@
 <?php
+include "../model/ndb.php";
+
 // session_start();
     $fnameErr = $phoneErr = $nidErr = $sellerTypeErr = $areaErr = $imageErr = $usernameErr = $passwordErr = $termsErr = "";
     $fname = $phone = $nid = $sellerType = $area = $img = $username = $password = $terms= "";
