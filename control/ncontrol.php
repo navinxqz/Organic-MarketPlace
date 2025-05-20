@@ -1,6 +1,5 @@
 <?php
 include "../model/ndb.php";
-
 // session_start();
     $fnameErr = $phoneErr = $nidErr = $sellerTypeErr = $areaErr = $imageErr = $usernameErr = $passwordErr = $termsErr = "";
     $fname = $phone = $nid = $sellerType = $area = $img = $username = $password = $terms= "";
@@ -58,7 +57,7 @@ include "../model/ndb.php";
             $isValid = false;
         }
     }
-    if($_FILES["myfile"]["name"] != ""){
+    if(!empty($_FILES["myfile"]["name"])){
         $type = ["image/jpg", "image/jpeg", "image/png"];
         $fType = $_FILES["myfile"]["type"];
 
@@ -81,20 +80,30 @@ include "../model/ndb.php";
         $termsErr = "You must agree to the terms and conditions";
         $isValid = false;
     } else {
-        $terms = htmlspecialchars($_POST["agree_terms"]);
+        $terms = true;
     }
+    $category = isset($_POST['seller_category']) ? htmlspecialchars($_POST['seller_category']) : "";
     if($isValid){
-        unset($_SESSION['registration_data']);
-        $_SESSION['registration_data'] = [
-            'fname' => $fname,
-            'phone' => $phone,
-            'nid' => $nid,
-            'seller_type' => $sellerType,
-            'seller_category' => $category,
-            'seller_area' => $area,
-            'username' => $username,
+        $model = new Model();
+        $conn = $model->createCon();
+        $tb = "seller_registration";
+        $v = $model->addValue($conn, $tb, $fname, $phone, $nid, $sellerType, $area, $_REQUEST["username"]."-".$_FILES["myfile"]["name"], $username, $password);
+        if($v === true){
+            // $success = "Registration successful!";
+            
+            $_SESSION['registration_data'] = [
+                'fname' => $fname,
+                'phone' => $phone,
+                'nid' => $nid,
+                'seller_type' => $sellerType,
+                'seller_category' => $category,
+                'seller_area' => $area,
+                'username' => $username,
         ];
         $form_submitted = true;
+    }else{
+        echo "Database Error: " . $v;
+    }
     }
 }
 function Success(){
