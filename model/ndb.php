@@ -13,7 +13,10 @@ class DB{
         if($conn->query($sql) === TRUE){
             return true;
         }else{
-            return false;
+            return $conn->error;
         }
+    }
+    function closeCon($conn){
+        $conn->close();
     }
 }
