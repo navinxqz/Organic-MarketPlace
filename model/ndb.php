@@ -21,5 +21,17 @@ function addValue($conn,$tb, $fname, $phone, $nid, $sellerType, $area, $img, $us
             return $error;
         }
     }
+    function fetchUser($conn, $tb, $username) {
+        $sql = "SELECT * FROM $tb WHERE USERNAME = '$username'";
+        return $conn->query($sql);
+    }
+    function checkLogin($conn, $username, $password) {
+        $sql = "SELECT * FROM seller_registration WHERE USERNAME = '$username' AND PASS = '$password'";
+        $result = $conn->query($sql);
+        return $result;
+    }
+    function CloseCon($conn) {
+        $conn->close();
+    }
 }
 ?>
