@@ -2,7 +2,7 @@
 include "../model/ndb.php";
 // session_start();
     $fnameErr = $phoneErr = $nidErr = $sellerTypeErr = $areaErr = $imageErr = $usernameErr = $passwordErr = $termsErr = "";
-    $fname = $phone = $nid = $sellerType = $area = $img = $username = $password = $terms= "";
+    $fname = $phone = $nid = $sellerType = $area = $category= $img = $username = $password = $terms= "";
  
     $form_submitted = false;
     $success = '';
@@ -57,6 +57,7 @@ include "../model/ndb.php";
             $isValid = false;
         }
     }
+    $category = $_POST["seller_category"];
     if(!empty($_FILES["myfile"]["name"])){
         $type = ["image/jpg", "image/jpeg", "image/png"];
         $fType = $_FILES["myfile"]["type"];
@@ -82,12 +83,11 @@ include "../model/ndb.php";
     } else {
         $terms = true;
     }
-    $category = isset($_POST['seller_category']) ? htmlspecialchars($_POST['seller_category']) : "";
     if($isValid){
         $model = new Model();
         $conn = $model->createCon();
         $tb = "seller_registration";
-        $v = $model->addValue($conn, $tb, $fname, $phone, $nid, $sellerType, $area, $_REQUEST["username"]."-".$_FILES["myfile"]["name"], $username, $password);
+        $v = $model->addValue($conn, $tb, $fname, $phone, $nid, $sellerType, $category, $area, $_REQUEST["username"]."-".$_FILES["myfile"]["name"], $username, $password);
         if($v === true){
             // $success = "Registration successful!";
             

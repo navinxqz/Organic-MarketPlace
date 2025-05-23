@@ -6,11 +6,11 @@ class Model {
             die("Connection failed: " . $conn->connect_error);
         }return $conn;
     }
-function addValue($conn,$tb, $fname, $phone, $nid, $sellerType, $area, $img, $username, $password) {
+function addValue($conn,$tb, $fname, $phone, $nid, $sellerType, $category, $area, $img, $username, $password) {
         $conn = $this->createCon();
 
-        $sql = "INSERT INTO $tb (FNAME, PHONE, NID, SELLERTYPE, AREA, LOGO, USERNAME, PASS)
-                VALUES ('$fname', '$phone', '$nid', '$sellerType', '$area', '$img', '$username', '$password')";
+        $sql = "INSERT INTO $tb (FNAME, PHONE, NID, SELLERTYPE, CATEGORY, AREA, LOGO, USERNAME, PASS)
+                VALUES ('$fname', '$phone', '$nid', '$sellerType', '$category', '$area', '$img', '$username', '$password')";
 
         if($conn->query($sql) === TRUE){
             $conn->close();
