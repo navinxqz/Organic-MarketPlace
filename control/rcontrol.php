@@ -52,8 +52,6 @@
         } else {
             $gender = htmlspecialchars($_POST["buyer_gender"]);
         }
-
-
         if(empty($_FILES["buyer_profile"]["name"])){
             $profilePictureError = "Profile picture is required.";
             $isValid = false;
@@ -72,8 +70,6 @@
                 $isValid = false;
             }
            }
-
-     
         if (empty($_POST["buyer_offers"])) {
             $checkboxError = "You must agree to the terms and conditions.";
             $isValid = false;
