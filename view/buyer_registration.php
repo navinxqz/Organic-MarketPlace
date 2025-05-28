@@ -1,5 +1,5 @@
 <?php
- include "../control/rcontrol.php";
+ require "../control/rcontrol.php";
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,7 +19,7 @@
     </div>
     
     <form id="buyer-form" action="" method="post" enctype="multipart/form-data">
-        <h2 class="heading">Register as Buyer</h2>
+        <h2>Register as Buyer</h2>
         <fieldset>
            
         <legend>Personal Details</legend>
@@ -37,7 +37,7 @@
             </div>
             <div class="form-group">
                 <label for="buyer_password">Password:</label>
-                <input type="password" id="buyer_password" name="buyer_password">
+                <input type="password" id="buyer_password" name="buyer_password" value="<?php echo $password; ?>">
                 <div class="error-message"><?php echo $passwordError; ?></div>
             </div>
             <div class="form-group">
@@ -78,7 +78,7 @@
             </div>
             <div class="form-group">
                 <label for="buyer_profile">Upload Profile Picture:</label>
-                <input type="file" id="buyer_profile" name="buyer_profile">
+                <input type="file" id="buyer_profile" name="buyer_profile" value="<?php echo $file; ?>">
                 <div class="error-message"> <?php echo $profilePictureError ; ?> </div>
             </div>
             <div class="form-group">
