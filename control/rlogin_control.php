@@ -10,6 +10,7 @@ if (isset($_POST["Submit"])) {
 
     if (mysqli_num_rows($result) > 0) {
         $_SESSION["fname"] = $name;
+        
         header("Location: ../view/rprofile.php");
         exit();
     } else {

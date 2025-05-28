@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>User Profile</h1>
-        <p>Welcome, <?php echo $_SESSION['fname']; ?>!</p>
+        <p>Welcome, <?php echo $_SESSION['fname']; ?></p>
 
       
 

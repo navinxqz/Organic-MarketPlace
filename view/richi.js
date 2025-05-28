@@ -3,9 +3,9 @@ document.addEventListener("DOMContentLoaded", function () {
  
     const submitButton = document.getElementById("submit-button");
 
-    // Attach an event listener to the form's submit event
+   
     form.addEventListener("submit", function (event) {
-        event.preventDefault(); // Prevent default form submission for demonstration
+        event.preventDefault(); 
 
         if (validateForm()) {
             // Show the success message
