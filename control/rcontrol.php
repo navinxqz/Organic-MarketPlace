@@ -53,24 +53,25 @@
             $gender = htmlspecialchars($_POST["buyer_gender"]);
         }
 
- 
-   if (empty($_FILES["buyer_profile"]["name"])) {
-    $profilePictureError = "Profile picture is required.";
-    $isValid = false;
-   } else {
-    $target_dir = "../uploads/";
-    // Just use email + original file name for uniqueness
-    $file = $_POST["buyer_email"] . "-" . $_FILES["buyer_profile"]["name"];
-    $target_path = $target_dir . $file;
-    if (move_uploaded_file($_FILES["buyer_profile"]["tmp_name"], $target_path)) {
-        $profilePictureError = "Profile picture uploaded successfully.";
-        // $file already has the correct value for DB
-    } else {
-        $profilePictureError = "Failed to upload the profile picture.";
-        $isValid = false;
-        $file = ""; // Set to empty if upload fails
-    }
-}
+
+        if(empty($_FILES["buyer_profile"]["name"])){
+            $profilePictureError = "Profile picture is required.";
+            $isValid = false;
+        } 
+        else {
+            $profilePicture = $_FILES["buyer_profile"]["tmp_name"];
+            $target_dir = "../uploads/";
+            $target_file = $_FILES["buyer_profile"]["name"];
+            if (move_uploaded_file($profilePicture, $target_dir.$_REQUEST ["buyer_email"]."-".$target_file)) 
+            {
+                $profilePicture = htmlspecialchars($target_file); // Sanitize the file path
+                $profilePictureError = "Profile picture uploaded successfully.";
+            }
+             else {
+                $profilePictureError = "Failed to upload the profile picture.";
+                $isValid = false;
+            }
+           }
 
      
         if (empty($_POST["buyer_offers"])) {
