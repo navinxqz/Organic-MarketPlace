@@ -116,7 +116,7 @@ include "../model/ndb.php";
             $_SESSION['category'] = $category;
             $_SESSION['area'] = $area;
             $_SESSION['img'] = $img;
-        header("Location: ../view/nlogin.php");
+        header("Location: ../view/submit.php?fname=" . urlencode($fname) . "&phone=" . urlencode($phone) . "&nid=" . urlencode($nid));
         exit();
     }else{
         echo "Database Error: " . $v;

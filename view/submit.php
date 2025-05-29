@@ -55,12 +55,7 @@
         <p>Full Name: <?php echo htmlspecialchars($_GET['fname']); ?></p>
         <p>Phone: <?php echo htmlspecialchars($_GET['phone']); ?></p>
         <p>NID: <?php echo htmlspecialchars($_GET['nid']); ?></p>
-        <p>Type of Seller:<?php echo htmlspecialchars($_GET['seller_type']); ?></p>
-        <p>Business Category: <?php echo htmlspecialchars($_GET['seller_category']); ?></p>
-        <p>Business Area: <?php echo htmlspecialchars($_GET['seller_area']); ?></p>
-        <p>Username: <?php echo htmlspecialchars($_GET['username']); ?></p>
-
-        <a href="../seller_registration.php" class="button">Go Back</a>
+        <a href="./nlogin.php" class="button">Log In</a>
     </div>
 </body>
 </html>
