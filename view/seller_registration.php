@@ -1,6 +1,11 @@
 <?php
 // session_start();
-include "../control/ncontrol.php";
+setcookie("user", "1", time() + 86400);
+if(!isset($_COOKIE["user"])) {
+    header("Location: ../view/nlogin.php");
+    echo "You must log in first!";
+    // exit();
+}else { echo "Welcome back!"; }
 ?>
  
 <!DOCTYPE html>
@@ -9,6 +14,10 @@ include "../control/ncontrol.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seller Registration - Organic Food Marketplace</title>
     <link rel="stylesheet" type="text/css" href="navin.css">
+    
+    <?php
+    include "../control/ncontrol.php";
+    ?>
 </head>
 <body>
     <div class="navbar">
