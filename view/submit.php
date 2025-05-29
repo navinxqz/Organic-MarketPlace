@@ -55,7 +55,7 @@
         <p>Full Name: <?php echo htmlspecialchars($_GET['fname']); ?></p>
         <p>Phone: <?php echo htmlspecialchars($_GET['phone']); ?></p>
         <p>NID: <?php echo htmlspecialchars($_GET['nid']); ?></p>
-        <a href="./nlogin.php" class="button">Log In</a>
+        <a href="./nlogin.php" class="button">Dashboard</a>
     </div>
 </body>
 </html>
