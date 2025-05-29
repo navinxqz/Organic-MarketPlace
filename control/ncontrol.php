@@ -1,6 +1,11 @@
 <?php
+session_start();
+if(isset($_SESSION["user"])){
+    header("Location: seller_dashboard.php");
+    // die("Loading...");
+    exit();
+}
 include "../model/ndb.php";
-// session_start();
     $fnameErr = $phoneErr = $nidErr = $sellerTypeErr = $areaErr = $imageErr = $usernameErr = $passwordErr = $termsErr = "";
     $fname = $phone = $nid = $sellerType = $area = $category= $img = $username = $password = $terms= "";
  
@@ -58,6 +63,7 @@ include "../model/ndb.php";
         }
     }
     $category = $_POST["seller_category"];
+
     if(!empty($_FILES["myfile"]["name"])){
         $type = ["image/jpg", "image/jpeg", "image/png"];
         $fType = $_FILES["myfile"]["type"];
@@ -69,7 +75,8 @@ include "../model/ndb.php";
             $d = "../uploads/";
             $f = $_FILES["myfile"]["name"];
        
-            if(move_uploaded_file($_FILES["myfile"]["tmp_name"], $d.$_REQUEST["username"]."-".$f)){
+            if(move_uploaded_file($_FILES["myfile"]["tmp_name"], $d . $username . "-".$f)){
+                $img = $username . "-".$f;
                 $imageErr= "File uploaded successfully";
             }else{
                 $imageErr = "File upload failed";
@@ -87,48 +94,60 @@ include "../model/ndb.php";
         $model = new Model();
         $conn = $model->createCon();
         $tb = "seller_registration";
-        $v = $model->addValue($conn, $tb, $fname, $phone, $nid, $sellerType, $category, $area, $_REQUEST["username"]."-".$_FILES["myfile"]["name"], $username, $password);
+        $v = $model->addValue($conn, $tb, $fname, $phone, $nid, $sellerType, $category, $area, $img, $username, $password);
         if($v === true){
             // $success = "Registration successful!";
-            
-            $_SESSION['registration_data'] = [
-                'fname' => $fname,
-                'phone' => $phone,
-                'nid' => $nid,
-                'seller_type' => $sellerType,
-                'seller_category' => $category,
-                'seller_area' => $area,
-                'username' => $username,
-        ];
-        $form_submitted = true;
+        //     $_SESSION['registration_data'] = [
+        //         'fname' => $fname,
+        //         'phone' => $phone,
+        //         'nid' => $nid,
+        //         'seller_type' => $sellerType,
+        //         'seller_category' => $category,
+        //         'seller_area' => $area,
+        //         'username' => $username,
+        //  ];
+        // $form_submitted = true;
+        // $_SESSION['user'] = $username;
+            $_SESSION['user'] = $username;
+            $_SESSION['fname'] = $fname;
+            $_SESSION['phone'] = $phone;
+            $_SESSION['nid'] = $nid;
+            $_SESSION['sellerType'] = $sellerType;
+            $_SESSION['category'] = $category;
+            $_SESSION['area'] = $area;
+            $_SESSION['img'] = $img;
+        header("Location: ../view/nlogin.php");
+        exit();
     }else{
         echo "Database Error: " . $v;
     }
     }
 }
-function Success(){
-    if(!isset($_SESSION['registration_data']) || empty($_SESSION['registration_data'])){
-        return '';
-    }
-    $data = $_SESSION['registration_data'];
-    unset($_SESSION['registration_data']);
+// function Success(){
+//     if(!isset($_SESSION['registration_data']) || empty($_SESSION['registration_data'])){
+//         return '';
+//     }
+//     $data = $_SESSION['registration_data'];
+//     unset($_SESSION['registration_data']);
  
-    $html = '
-    <div class="success">
-        <h2>Registration Successful!</h2>
-        <p>Thank you for registering, ' . htmlspecialchars($data['fname']) . '!</p>
-        <p>Your details:</p>
-        <ul>
-            <li>Full Name: ' . htmlspecialchars($data['fname']) . '</li>
-            <li>Phone Number: ' . htmlspecialchars($data['phone']) . '</li>
-            <li>National ID: ' . htmlspecialchars($data['nid']) . '</li>
-            <li>Seller Type: ' . htmlspecialchars($data['seller_type']) . '</li>
-            <li>Seller Category: ' . htmlspecialchars($data['seller_category']) . '</li>
-            <li>Business Area: ' . htmlspecialchars($data['seller_area']) . '</li>
-            <li>Username: ' . htmlspecialchars($data['username']) . '</li>
-        </ul>
-    </div>';
-    return $html;
-}
-$success = Success();
+//     $html = '
+//     <div class="success">
+//         <h2>Registration Successful!</h2>
+//         <p>Thank you for registering, ' . htmlspecialchars($data['fname']) . '!</p>
+//         <p>Your details:</p>
+//         <ul>
+//             <li>Full Name: ' . htmlspecialchars($data['fname']) . '</li>
+//             <li>Phone Number: ' . htmlspecialchars($data['phone']) . '</li>
+//             <li>National ID: ' . htmlspecialchars($data['nid']) . '</li>
+//             <li>Seller Type: ' . htmlspecialchars($data['seller_type']) . '</li>
+//             <li>Seller Category: ' . htmlspecialchars($data['seller_category']) . '</li>
+//             <li>Business Area: ' . htmlspecialchars($data['seller_area']) . '</li>
+//             <li>Username: ' . htmlspecialchars($data['username']) . '</li>
+//         </ul>
+//     </div>';
+//     // return $html;
+//     header("Location: ../view/seller_dashboard.php");
+//     closeCon($conn);
+// }
+// $success = Success();
 ?>

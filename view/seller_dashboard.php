@@ -1,13 +1,9 @@
 <?php 
 session_start();
-// include "../control.npcontrol.php";
-if(!isset($_SESSION["username"])) {
+if(!isset($_SESSION["user"])) {
     header("Location: nlogin.php");
-    die();
     exit();
 }
-include "../model/ndb.php";
-$conobj = createCon();
 ?>
 
 <!DOCTYPE html>
@@ -18,10 +14,15 @@ $conobj = createCon();
     <link rel="stylesheet" type="text/css" href="navin.css">
 </head>
     <body>
-        HELLO <?php echo $_SESSION["username"]; ?>!
+        <p>Welcome to seller dashboard, <?php echo htmlspecialchars($_SESSION["fname"]); ?>!</p>
+        <p>Phone: <?php echo htmlspecialchars($_SESSION["phone"]); ?></p>
+        <p>National ID: <?php echo htmlspecialchars($_SESSION["nid"]); ?></p>
+        <p>Seller Type: <?php echo htmlspecialchars($_SESSION["sellerType"]); ?></p>
+        <p>Business Category: <?php echo htmlspecialchars($_SESSION["category"]); ?></p>
+        <p>Business Area: <?php echo htmlspecialchars($_SESSION["area"]); ?></p>
+        <p>Profile Logo:</p>
+        <img src="../uploads/<?php echo htmlspecialchars($_SESSION["img"]); ?>" alt="Profile Logo" width="100">
         <br>
-        <h2>Welcome to the Seller Dashboard</h2>
         <a href="./nlogout.php">Logout</a>
-        <br>
 </body>
 </html>
